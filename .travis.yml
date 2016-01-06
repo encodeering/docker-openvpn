@@ -4,3 +4,28 @@ sudo: required
 
 services:
 - docker
+
+env:
+  global:
+    - secure: "L5+Nm7PXrE3kui7LQx2qk037n3KfwRpBqwMCWnZ+newTy39UrXeSZdOCAteuKCJinTARkgFTA6WyR9JEwLRRNvCPD2LGbxnk7we3YxAJlDNtautWPfnk4BQa3Y4CPAdTl1xqi/a+tc+7JsO7U4X89/xmVJwYX41XuLgpMIpBsMQfrDyZ9KQ8YcoC/NTD9ovbCXfrM/xmHHPAgD5pasZGlseDdf2y0lh3x56OQ9kpwbMydMrRrSALB+2LMDNNdNK1btOhMS+Su4fZWNYDrROtcbwwThK8NXvnVyCOvv2cz6+nkS3N1RnuU1pB5MW9n9cBtqYsfZf9sAvd1Bq6py/1sF93UzHqwTw6rA6C/AARJC0/6n+F4cRfhlRU78F+Xh7wrT4JF5W5ZVGY3R98K4ikwyr1S8oIAxU2SZ9RIB8H5qRlPDCiua8nA1bfagUKjXEnrkWCjZ1+BodO2tSy0qhvJImtWu6XhAQiEjHN7q/d5Q89k2YyOzOR3dok4Va05AcmgXH/zS4sHau9/crya9y0nHToxR6H7jvys/wj0tOJxTY7W7OLK4x1dLuQOwEVJ+AvdULf+9SM22x7x8LIiNik22Auyqh4YkKs59iGhXzDs6bglhHHvfcL8fCvzWuEP8Uy3PLA6d2qifyV33J8ou96GvyfFOsKj5G4/bSZXDa8sx8="
+    - secure: "ajSo0wcQWCkAcmPCYzELyugnLNmn0fvslc6s5/DQpn5wOq2YqHBVxNqwmapW9HvfT8xle4K3rxrWo8EiDIJj2mot8K7zwGxodathQzljDGmtctm7GrpCyOYEd8A0su2iDYlfQxkI8DH7zrRuz7nkQucjF90r1QgzdDyIzpGL+t0JzQjMovTEZ9WayxmeEWyFazQHjkBeMINiIsMJCkom/PIMetLKKZqePhXobFLthZRbHRc4t1mMNyggJPIbLOCx89nsLLpGSZ6n8w+L2D5s/neiOvkXTJydKmM6VG24dV27KAJVUq7hmS5SsR8RtRTgt0J+d7vnytz0QN08EbcMypuazLzanZunsvV1wGZ/nsOX3sowlN1iS2WRz5lA8Z25wwS4G8sQ8bAnv1LpxraKrS8liMrVJxzz7lfAVTomBVGVx/vMfOnLul6RBHS9f8JyVlrCiHV1JqM7lkfOVR27LvhIdPk2eO6/criZ3czy8dJgCWRAYktOdlfPPtGQ5O9H11btlIcotdXaUKCOn3OX5ox6wF/W8RAxM8NFu+ZBKCoDFlI8YrPlfE064qDNh1x7X6m7UWSTa6fwG//uu+aotY7A4+7BWPtR8QoIZ6QttY5/xqVw6buNllHDVkEX7I0rk5XF7JoLQvYJXIuhXjvyOkNkPhNn5T3OfhoDMHCfCCs="
+    - secure: "S/PwxOs9+7SCDq3eCtvXtPuDDwXa/VkNoTKsEbkjAHufs4XUdFSy76GbG9KsvJTAoQ5N1lMcEgnM+QBkolwhK53z2098r8vOLjYBGyO/tsZHK5B8rlCgCeUTZjWjzKN05GfRjxf+cWvHkDL2znPRVNz5zxcan4xyMOb2dE3RgdgPghWSKyXOB4JuPsoHc0hRRxj3jb0P1zgEI5lFaqTXMqZVtnFaUMs42ivqUvtBGTzKcq1OraW+a9A96JngcaAfk/ymw44DTSH4iLShSU3H5VkgRK3R/fg78OFr+L4UpkUU0eGvN7qyeV1Jto3Db6LQ6U/LzXfipcaDV2DjTwJy9KeynjszlYvtcXoi4PqkaIS3eEN4RDaCrHV5akM8Ct6dL+FoKgY2Y2j9T3L4+anrCg4M8giYH+WsTqh8e70BgwqZL+P3WQn5qiR2LzKxadQ6vfDxkqLCDJaPOoL8U/KU/7jifcVwartFxDRz2CpRXyZ7TRm+qBFVoK9Z0fEs6GuFVHWdPdNGAQr0e+L0qKkl9v9H+Zo3Fq0uDUpwbQRPm5XaVcRGbEmvZssOM0m9zab3okc6Fp+M9V9U+rIxiHbpAoapX89Yncvdywdzubel1tqOKvQ49/HYy7LuRB69MC/mI2BltKeieHBURBnmJiMOR3QDXmHDY8EjGrfR/B52cZ0="
+    - PROJECT="openvpn"
+    - REPOSITORY="encodeering"
+  matrix:
+    - ARCH=armhf VERSION=1.1.0
+    - ARCH=amd64 VERSION=1.1.0
+
+before_script:
+- sudo cat /proc/sys/fs/binfmt_misc/status
+- sudo sh -c "echo ':arm:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-arm-static:' > /proc/sys/fs/binfmt_misc/register"
+- git clone --depth 1 https://github.com/kylemanna/docker-openvpn.git "$PROJECT" --branch "v$VERSION"
+
+script:
+- sudo -E sh .travis/build.sh
+
+after_success:
+- sudo -E sh .travis/deploy.sh
+
+after_script:
+- docker images
