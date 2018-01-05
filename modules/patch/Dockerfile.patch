@@ -1,11 +1,10 @@
---- Dockerfile	2015-12-05 09:55:30.644693800 +0000
-+++ Dockerfile	2016-01-06 13:20:11.823274700 +0000
-@@ -6,7 +6,7 @@
- MAINTAINER Kyle Manna <kyle@kylemanna.com>
- 
- RUN apt-get update && \
+diff --git a/Dockerfile b/Dockerfile
+index 617a7bb..21db25f 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -4 +4 @@
+-FROM debian:jessie
++FROM debian:stretch
+@@ -9 +9 @@ RUN apt-get update && \
 -    apt-get install -y openvpn iptables curl && \
 +    apt-get install -y openvpn iptables curl ca-certificates && \
-     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
- 
- RUN mkdir -p /usr/local/share/easy-rsa && \
