@@ -14,14 +14,16 @@ env:
     - REPOSITORY="encodeering"
     - BRANCH="$TRAVIS_BRANCH"
   matrix:
-    - ARCH=armhf VERSION=1.1.0
-    - ARCH=amd64 VERSION=1.1.0
+    - BASE="debian" ARCH=armhf VERSION=1.1.0 COMMIT="v$VERSION"
+    - BASE="debian" ARCH=amd64 VERSION=1.1.0 COMMIT="v$VERSION"
+    - BASE="alpine" ARCH=armhf VERSION=2.4   COMMIT="openvpn-v$VERSION"
+    - BASE="alpine" ARCH=amd64 VERSION=2.4   COMMIT="openvpn-v$VERSION"
 
 install:
 - bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.5
 
 before_script:
-- sudo -E bash ./module.sh "." "./setup.sh" "https://github.com/kylemanna/docker-openvpn.git" "modules/$PROJECT" "v$VERSION"
+- sudo -E bash ./module.sh "." "./setup.sh" "https://github.com/kylemanna/docker-openvpn.git" "modules/$PROJECT" "$COMMIT"
 
 script:
 - sudo -E bash ./module.sh "modules" "./build.sh"

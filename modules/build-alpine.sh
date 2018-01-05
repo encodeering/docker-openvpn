@@ -10,10 +10,6 @@ set -e
 import com.encodeering.docker.config
 import com.encodeering.docker.docker
 
-./build-${BASE}.sh
+docker-pull "$REPOSITORY/alpine-$ARCH:3.7" "alpine:3.6"
 
-set +e
-
-docker run --rm "$DOCKER_IMAGE" openvpn --version | tee .version
-
-grep -qF -- "<sales@openvpn.net>" .version
+docker build -t "$DOCKER_IMAGE" "$PROJECT"
