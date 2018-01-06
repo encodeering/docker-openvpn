@@ -13,7 +13,7 @@ index f0770dc..3587e94 100644
 -    rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 -
 @@ -22,0 +17,9 @@ ENV EASYRSA_CRL_DAYS 3650
-+ARG EASYRSA_VERSION=3.0.0
++ARG EASYRSA_VERSION=3.0.3
 +
 +RUN apt-get update \
 + && apt-get install -y openvpn iptables libpam-google-authenticator pamtester curl ca-certificates \
