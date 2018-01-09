@@ -20,10 +20,10 @@ env:
     - BASE="alpine" ARCH=amd64 VERSION=2.4
 
 install:
-- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.5
+- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.6
 
 before_script:
-- sudo -E bash ./module.sh "." "./setup.sh" "https://github.com/kylemanna/docker-openvpn.git" "modules/$PROJECT" "openvpn-v$VERSION"
+- sudo -E bash ./module.sh "." "./setup.sh"
 
 script:
 - sudo -E bash ./module.sh "modules" "./build.sh"
