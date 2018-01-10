@@ -2,13 +2,13 @@
 
 set -e
 
-import com.encodeering.docker.config
-import com.encodeering.docker.docker
+import com.encodeering.ci.config
+import com.encodeering.ci.docker
 
 ./build-${BASE}.sh
 
 set +e
 
-docker run --rm "$DOCKER_IMAGE" openvpn --version | tee .version
+docker-verify openvpn --version | tee .version
 
 grep -qF -- "<sales@openvpn.net>" .version
