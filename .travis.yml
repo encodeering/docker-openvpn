@@ -12,7 +12,6 @@ env:
     - secure: "S/PwxOs9+7SCDq3eCtvXtPuDDwXa/VkNoTKsEbkjAHufs4XUdFSy76GbG9KsvJTAoQ5N1lMcEgnM+QBkolwhK53z2098r8vOLjYBGyO/tsZHK5B8rlCgCeUTZjWjzKN05GfRjxf+cWvHkDL2znPRVNz5zxcan4xyMOb2dE3RgdgPghWSKyXOB4JuPsoHc0hRRxj3jb0P1zgEI5lFaqTXMqZVtnFaUMs42ivqUvtBGTzKcq1OraW+a9A96JngcaAfk/ymw44DTSH4iLShSU3H5VkgRK3R/fg78OFr+L4UpkUU0eGvN7qyeV1Jto3Db6LQ6U/LzXfipcaDV2DjTwJy9KeynjszlYvtcXoi4PqkaIS3eEN4RDaCrHV5akM8Ct6dL+FoKgY2Y2j9T3L4+anrCg4M8giYH+WsTqh8e70BgwqZL+P3WQn5qiR2LzKxadQ6vfDxkqLCDJaPOoL8U/KU/7jifcVwartFxDRz2CpRXyZ7TRm+qBFVoK9Z0fEs6GuFVHWdPdNGAQr0e+L0qKkl9v9H+Zo3Fq0uDUpwbQRPm5XaVcRGbEmvZssOM0m9zab3okc6Fp+M9V9U+rIxiHbpAoapX89Yncvdywdzubel1tqOKvQ49/HYy7LuRB69MC/mI2BltKeieHBURBnmJiMOR3QDXmHDY8EjGrfR/B52cZ0="
     - PROJECT="openvpn"
     - REPOSITORY="encodeering"
-    - BRANCH="$TRAVIS_BRANCH"
   matrix:
     - BASE="debian" ARCH=armhf VERSION=2.4
     - BASE="debian" ARCH=amd64 VERSION=2.4
@@ -20,7 +19,7 @@ env:
     - BASE="alpine" ARCH=amd64 VERSION=2.4
 
 install:
-- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.7
+- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.8
 
 before_script:
 - sudo -E bash ./module.sh "." "./setup.sh"
