@@ -3,7 +3,7 @@ index f0770dc..3587e94 100644
 --- a/Dockerfile
 +++ b/Dockerfile
 @@ -4 +4 @@
--FROM alpine:3.6
+-FROM alpine:latest
 +FROM debian:stretch
 @@ -8,6 +7,0 @@ MAINTAINER Kyle Manna <kyle@kylemanna.com>
 -# Testing: pamtester
