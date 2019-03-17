@@ -9,6 +9,4 @@ import com.encodeering.ci.docker
 
 set +e
 
-docker-verify openvpn --version | tee .version
-
-grep -qF -- "<sales@openvpn.net>" .version
+docker-verify openvpn --version | dup | contains "OpenVPN ${VERSION}"
