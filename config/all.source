@@ -1,3 +1,3 @@
 SCM_SOURCE=https://github.com/kylemanna/docker-openvpn.git
 SCM_TARGET=modules/$PROJECT
-SCM_COMMIT=76674b6a3030469f65b09b66a28b92ad96cb6099
+SCM_COMMIT=d53043e401a6c0b0c20d39066ad2b1aaf8e4d251
